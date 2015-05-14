@@ -1,0 +1,22 @@
+        <datasource>
+            <name>WSO2AM_STATS_DB</name>
+            <description>The datasource used for statistics to app magager</description>
+            <jndiConfig>
+                <name><%= @jndi_datasource_for_stat_db %></name>
+            </jndiConfig>
+            <definition type="RDBMS">
+                <configuration>
+                    <url>jdbc:mysql://<%= @mysql_server %>:<%= @mysql_port %>/<%= @mysql_database_name_for_stat_db %>?autoReconnect=true</url>
+                    <username><%= @mysql_username %></username>
+                    <password><%= @mysql_password %></password>
+                    <driverClassName>com.mysql.jdbc.Driver</driverClassName>
+                    <maxActive><%= @max_active %></maxActive>
+                    <maxWait><%= @max_wait %></maxWait>
+                    <minIdle>5</minIdle>
+                    <testOnBorrow>true</testOnBorrow>
+                    <validationQuery>SELECT 1</validationQuery>
+                    <validationInterval>30000</validationInterval>
+                </configuration>
+            </definition>
+        </datasource>
+
